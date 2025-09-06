@@ -17,33 +17,40 @@ struct AuthView: View {
             AppColors.backgroundColor
                 .ignoresSafeArea()
             
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(spacing: 20) {
+                
+                Spacer()
                 
                 LottieView(name: "AuthViewAnimation", multiplier: 1)
+                    .frame(width: 300, height: 300)
                 
-                Text("Добро пожаловать!")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundStyle(AppColors.defaultTextColor)
-                
-                Text("Вы попали в приложение для учеников музыкальной школы! Вам необходимо ввести свой ключ доступа, чтобы продолжить!")
-                    .font(.title3)
-                    .foregroundStyle(AppColors.defaultTextColor)
-                
-                PrimaryTextField(
-                    placeholder: "Введите ваш ключ доступа",
-                    systemImageName: "lock.fill",
-                    text: $viewModel.enterKeyTextFieldValue
-                )
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("Добро пожаловать!")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundStyle(AppColors.defaultTextColor)
+                    
+                    Text("Вы попали в приложение для учеников музыкальной школы! Вам необходимо ввести свой ключ доступа, чтобы продолжить!")
+                        .font(.title3)
+                        .foregroundStyle(AppColors.defaultTextColor)
+                    
+                    PrimaryTextField(
+                        placeholder: "Введите ваш ключ доступа",
+                        systemImageName: "lock.fill",
+                        text: $viewModel.enterKeyTextFieldValue
+                    )
 
-                PrimaryButton(
-                    title: "Вперед!",
-                    isDisabled: viewModel.enterKeyTextFieldValue.isEmpty
-                ) {
-                 
+                    PrimaryButton(
+                        title: "Вперед!",
+                        isDisabled: viewModel.enterKeyTextFieldValue.isEmpty
+                    ) {
+    
+                    }
                 }
+                .padding(.horizontal, 20)
+                
+                Spacer()
             }
-            .padding(20)
         }
     }
 }
