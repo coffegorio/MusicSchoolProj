@@ -9,10 +9,18 @@ import SwiftUI
 
 struct MainTabView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        ZStack {
+            
+            AppColors.backgroundColor
+                .ignoresSafeArea()
+            
+            VStack {
+                Text("Привет! Вы попали в приложение")
+            }
+            .padding(20)
+            
+        }
+        
     }
-}
-
-#Preview {
-    MainTabView()
 }

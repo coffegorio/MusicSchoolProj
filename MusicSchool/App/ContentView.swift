@@ -11,6 +11,7 @@ struct ContentView: View {
     @StateObject private var appState = AppState()
     @StateObject private var splashVM = SplashViewModel()
     @StateObject private var authVM = AuthViewModel()
+    @StateObject private var keyboardManager = KeyboardManager()
 
     var body: some View {
         ZStack {
@@ -22,10 +23,12 @@ struct ContentView: View {
             case .auth:
                 AuthView(viewModel: authVM)
                     .environmentObject(appState)
+                    .environmentObject(keyboardManager)
 //                    .transition(.move(edge: .leading))
             case .mainTab:
                 MainTabView()
                     .environmentObject(appState)
+                    .environmentObject(keyboardManager)
 //                    .transition(.move(edge: .leading))
             }
         }
